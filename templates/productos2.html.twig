@@ -49,7 +49,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 15px;
             }
 
             .links > a {
@@ -63,7 +63,11 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                
+                margin-bottom: 00px;
+            }
+            {table
+                top: 38px;
             }
         </style>
     </head>
@@ -82,16 +86,40 @@
             
 
             <div class="content">
-                <div class="title m-b-md">
-                    TIENDA
+                <div class="m-b-md">
+                <table border="1" align="center">
+                <colgroup>
+                    <col id="categoria" />
+                    <col id="producto" />
+                    <col id="precio" />
+                    <col id="img_gde" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Imagen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pp in post_productos %} 
+                        <tr>
+                            <td>{{pp.Categoria_id}}</td>
+                            <td>{{pp.Nombre_Producto}}</td>
+                            <td>{{pp.Precio}}</td>
+                            <td><img src="{{ asset(pp.url_imagen_grande) }}""></img></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
                 </div>
 
                 <div class="links">
-                    <a href="https://silex.sensiolabs.org/doc/2.0/">Documentación Silex</a>
-                    <a href="https://twig.sensiolabs.org/doc/2.x/">Documentación Twig</a>
-                    <a href="{{ app.url_generator.generate('productos_vista') }}">Catalogo</a>
-                    <a href="{{ app.url_generator.generate('carrito_vista') }}">Carrito</a>
-                    <a href="https://github.com/josmrhyde/tienda">GitHub</a>
+                        <a href="https://silex.sensiolabs.org/doc/2.0/">Documentación Silex</a>
+                        <a href="https://twig.sensiolabs.org/doc/2.x/">Documentación Twig</a>
+                        <a href="{{ app.url_generator.generate('productos_vista') }}">Catalogo</a>
+                        <a href="https://github.com/josmrhyde/tienda">GitHub</a>
                 </div>
             </div>
         </div>
